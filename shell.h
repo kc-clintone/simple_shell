@@ -1,7 +1,7 @@
-#ifndef _SHELL_
-#define _SHELL_
+#ifndef SHELL_H
+#define SHELL_H
 
-/** some important includes **/
+/** some important headers **/
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
@@ -12,3 +12,9 @@
 #include <dirent.h>
 #include <signal.h>
 #include <stdio.h>
+
+/** function prototypes **/
+void _printf(char *input, int strm);
+void prompt(void);
+
+#endif /* SHELL_H */
