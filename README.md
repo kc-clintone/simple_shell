@@ -2,5 +2,5 @@
 
 # Simple Shell
 
-Welcome to the Simole Shell project where we will build a unix-like shell that will inteprate commands and execute them. Built using the C programming language, this project helps you grasp some of the cool gems the language offers. 
+Welcome to the Simple Shell project where we will build a unix-like shell that will interprate commands and execute them. Built using the C programming language, this project helps you grasp some of the cool gems the language offers. 
 
