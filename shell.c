@@ -1,67 +1,73 @@
 #include "shell.h"
+
+/* global vars */
+char *shell_prompt;
+char **parsedCommands;
+char *commandLine;
+int status = 0;
+
 /**
- * displayPrompt - Display the shell prompt
- */
-void prompt(void)
-{
-printf("$ ");
-}
-/**
-* main - the entry point of the shell program
-* @argc: the number of arguments passed to main function
-* @argv: the program arguments to be parsed to main function
-* Return: 0 on success, 1 otherwise
+ * control_d - this is a helper function that  handles
+ * the "CTRL + D"signal
+ * @signal: signal value (mosttly a number)
+ * Return: it usually returns nothing
 */
-int main(void)
+
+void control_d(int _signal)
 {
-pid_t pid = fork();
-ssize_t x = 0;
-int status;
-char *usr_input = NULL;
-size_t input_len = 0;
-
-while(1)
-{
-prompt();
-
-x = getline(&usr_input, &input_len, stdin) != -1;
-
-if (x == -1)
+if (_signal == SIGQUIT)
 {
 printf("\n");
+exit(0);
+}
+}
+
+/**
+ * main - this is the main function, the entry point to
+ * the shell program
+ * @argc: this is an array of number of arguments passed to the main
+ * function during execution
+ * @argv: this is an array of  program arguments to be parsed to
+ * the main function
+ * Return: 0 upon success, 1 otherwise
+*/
+
+int main(int argc __attribute__((unused)), char **argv)
+{
+size_t c = 0;
+char **currentSimpleCmd = NULL;
+int i, typeOfSimpleCmd = 0;
+
+signal(SIGINT, control_c);
+signal(SIGQUIT, control_d);
+shell_prompt = argv[0];
+while (1)
+{
+nonInteractive();
+_printf("$ ", STDOUT_FILENO);
+if (getline(&commandLine, &c, stdin) == -1)
+{
+free(commandLine);
+exit(status);
+}
+rmNewline(commandLine);
+handleComments(commandLine);
+parsedCommands = tokenHandler(commandLine, ";");
+
+for (i = 0; parsedCommands[i] != NULL; i++)
+{
+currentSimpleCmd = tokenHandler(parsedCommands[i], " ");
+if (currentSimpleCmd[0] == NULL)
+{
+free(currentSimpleCmd);
 break;
 }
-usr_input[strcspn(usr_input, "\n")] = '\0';
-
-if (pid == -1)
-{
-perror("Fork failed");
-exit(EXIT_FAILURE);
+typeOfSimpleCmd = parseCommands(currentSimpleCmd[0]);
+startShell(currentSimpleCmd, typeOfSimpleCmd);
+free(currentSimpleCmd);
 }
-else if (pid == 0)
-{
-execlp(usr_input, usr_input, (char *)NULL);
+free(parsedCommands);
 }
-if (pid == -1)
-{
-perror("Fork failed");
-exit(EXIT_FAILURE);
-}
-else if (pid == 0)
-{
-execlp(usr_input, usr_input, (char *)NULL);
-perror("Command not found");
-exit(EXIT_FAILURE);
-}
-else
-{
-waitpid(pid, &status, 0);
-if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
-{
-fprintf(stderr, "Error: Command exited with status %d\n", WEXITSTATUS(status));
-}
-}
-}
-free(usr_input);
-return (0);
+free(commandLine);
+return (status);
 }
