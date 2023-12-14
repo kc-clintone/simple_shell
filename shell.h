@@ -15,7 +15,16 @@
 
 /** function prototypes **/
 void _printf(char *input, int strm);
+void quit(char **simpleCommand);
 void handleComments(char *input);
 void handleDeleteComments(char *usrIn);
+void *reallocator(void *pointer, unsigned int initialSize,
+unsigned int reallocatedSize);
+void *reallocator(void *pointer, unsigned int initialSize,
+unsigned int reallocatedSize);
+
+int stringToIntConverter(char *);
+
+char *shellTokenizer(char *targetString, char *delimiter, char **pointer);
 
 #endif /* SHELL_H */
