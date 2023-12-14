@@ -9,7 +9,6 @@
 */
 
 void _printf(char *input, int strm)
-
 {
 int i = 0;
 for (; input[i] != '\0'; i++)
