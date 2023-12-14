@@ -15,6 +15,7 @@
 
 /** function prototypes **/
 void _printf(char *input, int strm);
-void prompt(void);
+void handleComments(char *input);
+void handleDeleteComments(char *usrIn);
 
 #endif /* SHELL_H */
