@@ -44,7 +44,6 @@ return (NULL);
 }
 }
 
-
 /**
  * stringToIntConverter - this function casts string to integer
  * @targetString: target string to be casted
@@ -75,7 +74,6 @@ break;
 } while (*targetString++);
 return (x);
 }
-
 
 /**
  * shellTokenizer - this function tries to

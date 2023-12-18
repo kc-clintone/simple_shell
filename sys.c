@@ -9,8 +9,8 @@ void quit(char **simpleCommand)
 {
 int args, tkx = 0;
 
-for (; simpleCommand[tkx] != NULL; tkx++)
-        ;
+for (; simpleCommand[tkx] != NULL; tkx++);
+
 if (tkx == 1)
 {
 free(simpleCommand);
