@@ -32,11 +32,11 @@ _stat = 2;
 else
 {
 free(_cli);
-free(simple_cmd);
-free(parsed_cmds);
-exit(args);
+free(x_cmd);
+free(_pcmds);
+exit(xargs);
 }
 }
 else
-custom_printf("$: too many arguments\n", STDERR_FILENO);
+_stdout("$: too many arguments\n", STDERR_FILENO);
 }
