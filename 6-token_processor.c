@@ -8,24 +8,24 @@
 
 char **tk_handler(char *usr_str, char *delim)
 {
-int count_delimiter = 0;
-char *pointer_ref = NULL;
-char *processed_token = NULL;
-char **_argv = NULL;
+char *ptk = NULL;
+char **xargv = NULL;
+int xdelim = 0;
+char *ptr_ref = NULL;
 
-processed_token = cutomized_strtok_for_shell(usr_input_string, delimiter,
-&pointer_ref);
+ptk = _strtok(usr_str, delim,
+&ptr_ref);
 
-while (processed_token != NULL)
+while (ptk != NULL)
 {
-_argv = custom_realloc(_argv, sizeof(*_argv) * count_delimiter,
-sizeof(*_argv) * (count_delimiter + 1));
-_argv[count_delimiter] = processed_token;
-processed_token = cutomized_strtok_for_shell(NULL, delimiter, &pointer_ref);
-count_delimiter++;
+xargv = _realloc(xargv, sizeof(*xargv) * xdelim,
+sizeof(*xargv) * (xdelim + 1));
+xargv[xdelim] = ptk;
+ptk = _strtok(NULL, delim, &ptr_ref);
+xdelim++;
 }
-_argv = custom_realloc(_argv, sizeof(*_argv) * count_delimiter,
-sizeof(*_argv) * (count_delimiter + 1));
-_argv[count_delimiter] = NULL;
-return (_argv);
+xargv = _realloc(xargv, sizeof(*xargv) * xdelim,
+sizeof(*xargv) * (xdelim + 1));
+argv[xdelim] = NULL;
+return (xargv);
 }
