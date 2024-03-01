@@ -1,30 +1,43 @@
-#ifndef SHELL_H
-#define SHELL_H
+#ifndef _SHELL_H_
+#define _SHELL_H_
 
-/** some important headers **/
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
 #include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <string.h>
 #include <dirent.h>
 #include <signal.h>
-#include <stdio.h>
+#include <sys/wait.h>
+#include <sys/stat.h>
+#include <sys/types.h>
 
-/** function prototypes **/
-void _printf(char *input, int strm);
-void quit(char **simpleCommand);
-void handleComments(char *input);
-void handleDeleteComments(char *usrIn);
-void *reallocator(void *pointer, unsigned int initialSize,
-unsigned int reallocatedSize);
-void *reallocator(void *pointer, unsigned int initialSize,
-unsigned int reallocatedSize);
+#define min(i, j) (((i) < (j)) ? (i) : (j))
 
-int stringToIntConverter(char *);
+#define _PATH 3
+#define _INTCMD 2
+#define _EXTCMD 1
+#define _BADCMD -1
 
-char *shellTokenizer(char *targetString, char *delimiter, char **pointer);
+extern int _stat;
+extern char *_shell;
+extern char **_genv;
+extern char *_cli;
+extern char **_pcmds;
 
-#endif /* SHELL_H */
+/**
+ * struct _object - This is a structure mappinh a command name to a
+ * corresponding function.
+ * @_command: The command name of the target command.
+ * @_fn: The func pointer to the command.
+*/
+typedef struct _object
+{
+char *_command;
+void (*_fn)(char **command);
+} object_map;
+
+/**===========prototypes===========*/
+
+
+#endif _SHELL_H_
