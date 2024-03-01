@@ -23,15 +23,15 @@ else if (tc == 2)
 xargs = custom_atoi(x_cmd[1]);
 if (xargs == -1)
 {
-_stdout(prompt, STDERR_FILENO);
-custom_printf(": 1: exit: Illegal number: ", STDERR_FILENO);
-custom_printf(simple_cmd[1], STDERR_FILENO);
-custom_printf("\n", STDERR_FILENO);
-status = 2;
+_stdout(_shell, STDERR_FILENO);
+_stdout(": 1: exit: Illegal number: ", STDERR_FILENO);
+_stdout(x_cmd[1], STDERR_FILENO);
+_stdout("\n", STDERR_FILENO);
+_stat = 2;
 }
 else
 {
-free(cmd_line);
+free(_cli);
 free(simple_cmd);
 free(parsed_cmds);
 exit(args);
