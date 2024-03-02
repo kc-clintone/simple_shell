@@ -1,4 +1,10 @@
 #include "shell.h"
+
+int _stat;
+char *_shell;
+char *_cli;
+char **_pcmds;
+
 /**
 * main - Entry point of the shell program.
 * @argc: Number of args passed to main function.
