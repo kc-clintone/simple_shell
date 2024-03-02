@@ -38,6 +38,8 @@ void (*_fn)(char **command);
 } object_map;
 
 /**===========prototypes===========*/
+void no_comment_char(char *xin);
 void _rmnl(char *string);
+void no_comment(char *trgt);
 
 #endif /*_SHELL_H_*/
