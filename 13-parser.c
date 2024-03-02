@@ -5,7 +5,7 @@
  * Description - Utilizes lots of functions to do it's thing.
  * Return: A constant to the type of cmd.
 */
-int parseer(char *xcmd)
+int parser(char *xcmd)
 {
 int x;
 char *t_path = NULL;
