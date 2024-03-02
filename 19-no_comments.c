@@ -22,3 +22,25 @@ x++;
 }
 trgt[x] = '\0';
 }
+
+/**
+ * no_comment_char - This functiin ignores anything after '#' char.
+ * @xin: User input.
+ * Return: Nada.
+*/
+void no_comment_char(char *xin)
+{
+int x = 0;
+
+if (xin[x] == '#')
+{
+xin[x] = '\0';
+}
+while (xin[x] != '\0')
+{
+if (xin[x] == '#' && xin[x - 1] == ' ')
+break;
+x++;
+}
+xin[x] = '\0';
+}
