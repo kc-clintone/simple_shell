@@ -6,11 +6,11 @@
  * @sgn: The signal value.
  * Return: Nada.
 */
-/*void _control_c(int sgn)
+void _control_c(int sgn)
 {
 if (sgn == SIGINT)
 _stdout("\n$ ", STDIN_FILENO);
-}*/
+}
 
 /**
  * _control_d - This simple fn handles interupt for the
