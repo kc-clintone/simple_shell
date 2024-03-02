@@ -17,12 +17,12 @@ if (t_path == NULL || strlen_fn(t_path) == 0)
 return (NULL);
 }
 tcopy = malloc(sizeof(*tcopy) * (strlen_fn(t_path) + 1));
-_strcpy(t_path, tcopy);
+strcpy_fn(t_path, tcopy);
 pthtr = tk_handler(tcopy, ":");
 for (x = 0; pthtr[x] != NULL; x++)
 {
-_sec = _strcat(pthtr[x], "/");
-_pri = _strcat(_sec, xcmd);
+_sec = strcat_fn(pthtr[x], "/");
+_pri = strcat_fn(_sec, xcmd);
 if (access(_pri, F_OK) == 0)
 {
 free(_sec);
@@ -34,6 +34,6 @@ free(_pri);
 free(_sec);
 }
 free(tcopy);
-free(pthr);
+free(pthtr);
 return (NULL);
 }
