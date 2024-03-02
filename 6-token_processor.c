@@ -26,6 +26,6 @@ xdelim++;
 }
 xargv = _realloc(xargv, sizeof(*xargv) * xdelim,
 sizeof(*xargv) * (xdelim + 1));
-argv[xdelim] = NULL;
+xargv[xdelim] = NULL;
 return (xargv);
 }
