@@ -20,7 +20,7 @@ basic_shell();
 _stdout("$ ", STDOUT_FILENO);
 if (getline(&_cli, &xv, stdin) == -1)
 {
-free(cli);
+free(_cli);
 exit(_stat);
 }
 _rmnl(_cli);
