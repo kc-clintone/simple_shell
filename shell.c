@@ -35,7 +35,7 @@ if (x_cmd[0] == NULL)
 free(x_cmd);
 break;
 }
-t_cmd = _pcmds(x_cmd[0]);
+t_cmd = parser(x_cmd[0]);
 start_shell(x_cmd, t_cmd);
 free(x_cmd);
 }
