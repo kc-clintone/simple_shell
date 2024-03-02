@@ -60,6 +60,6 @@ char *get_env(char *envn);
 int atoi_fn(char *str);
 char *strchr_fn(char *_str, char _chr);
 int strspn_fn(char *f_str, char *s_str);
-
+int strcspn_fn(char *f_str, char *s_str);
 
 #endif /*_SHELL_H_*/
