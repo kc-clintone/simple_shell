@@ -8,7 +8,7 @@ void (*pointer_func(char *xcmd))(char **)
 {
 int x;
 object_map map_func_to[] = {
-{"env", env}, {"exit", quit}
+{"env", xenv}, {"exit", quit}
 };
 
 for (x = 0; x < 2; x++)
