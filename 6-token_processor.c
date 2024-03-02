@@ -13,7 +13,7 @@ char **xargv = NULL;
 int xdelim = 0;
 char *ptr_ref = NULL;
 
-ptk = _strtok(usr_str, delim,
+ptk = strtok_fn(usr_str, delim,
 &ptr_ref);
 
 while (ptk != NULL)
@@ -21,7 +21,7 @@ while (ptk != NULL)
 xargv = _realloc(xargv, sizeof(*xargv) * xdelim,
 sizeof(*xargv) * (xdelim + 1));
 xargv[xdelim] = ptk;
-ptk = _strtok(NULL, delim, &ptr_ref);
+ptk = strtok_fn(NULL, delim, &ptr_ref);
 xdelim++;
 }
 xargv = _realloc(xargv, sizeof(*xargv) * xdelim,
