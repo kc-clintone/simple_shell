@@ -50,6 +50,7 @@ int strlen_fn(char *string);
 char **tk_handler(char *usr_str, char *delim);
 char *valid_path_check(char *xcmd);
 int parseer(char *xcmd);
+void strcpy_fn(char *source, char *dest);
 void quit(char **x_cmd);
 
 #endif /*_SHELL_H_*/
