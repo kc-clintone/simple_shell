@@ -54,6 +54,7 @@ char *valid_path_check(char *xcmd);
 int parser(char *xcmd);
 void strcpy_fn(char *source, char *dest);
 void quit(char **x_cmd);
+int strcmp_fn(char *f_str, char *s_str);
 void *_realloc(void *ptr, unsigned int i, unsigned int j);
 char *get_env(char *envn);
 
