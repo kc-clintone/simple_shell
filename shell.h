@@ -38,6 +38,7 @@ void (*_fn)(char **command);
 } object_map;
 
 /**===========prototypes===========*/
+void start_shell(char **c_cmd, int t_cmd);
 void no_comment_char(char *xin);
 void _rmnl(char *string);
 void basic_shell(void);
