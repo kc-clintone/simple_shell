@@ -20,7 +20,7 @@ return (_EXTCMD);
 }
 for (x = 0; sys_cmd[x] != NULL; x++)
 {
-if (_strcmp(xcmd, sys_cmd[x]) == 0)
+if (strcmp_fn(xcmd, sys_cmd[x]) == 0)
 {
 return (_INTCMD);
 }
