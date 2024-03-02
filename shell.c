@@ -11,12 +11,12 @@ char **x_cmd = NULL;
 size_t xv = 0;
 int x, t_cmd = 0;
 
-signal(SIGINT, handle_ctrlc);
-signal(SIGQUIT, handle_ctrld);
+signal(SIGINT, _control_c);
+signal(SIGQUIT, _control_d);
 _shell = argv[0];
 while (1)
 {
-basic_mode();
+basic_shell();
 _stdout("$ ", STDOUT_FILENO);
 if (getline(&_cli, &xv, stdin) == -1)
 {
