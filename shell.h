@@ -50,7 +50,7 @@ int strlen_fn(char *string);
 char *strtok_fn(char *_str, char *_delim, char **ref_pointer);
 char **tk_handler(char *usr_str, char *delim);
 char *valid_path_check(char *xcmd);
-int parseer(char *xcmd);
+int parser(char *xcmd);
 void strcpy_fn(char *source, char *dest);
 void quit(char **x_cmd);
 void *_realloc(void *ptr, unsigned int i, unsigned int j);
