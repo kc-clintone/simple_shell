@@ -7,31 +7,31 @@
 void basic_shell(void)
 {
 int x, t_cmd = 0;
-char **active_simple_cmd = NULL;
+char **x_cmd = NULL;
 size_t i = 0;
 
 if (!(isatty(STDIN_FILENO)))
 {
-while (getline(&cmd_line, &i, stdin) != -1)
+while (getline(&_cli, &i, stdin) != -1)
 {
-remove_newline_character(cmd_line);
-ignore_comment_str(cmd_line);
-parsed_cmds = token_processor(cmd_line, ";");
-for (x = 0; parsed_cmds[x] != NULL; x++)
+_rmnl(_cli);
+no_comments(_cli);
+_pcmds = tk_handler(_cli, ";");
+for (x = 0; _pcmds[x] != NULL; x++)
 {
-active_simple_cmd = token_processor(parsed_cmds[x], " ");
-if (active_simple_cmd[0] == NULL)
+x_cmd = tk_handler(_pcmds[x], " ");
+if (x_cmd[0] == NULL)
 {
-free(active_simple_cmd);
+free(x_cmd);
 break;
 }
-t_cmd = parse_processed_cmds(active_simple_cmd[0]);
-shell_init_func(active_simple_cmd, t_cmd);
-free(active_simple_cmd);
+t_cmd = parser(x_cmd[0]);
+start_shell(x_cmd, t_cmd);
+free(x_cmd);
 }
-free(parsed_cmds);
+free(_pcmds);
 }
-free(cmd_line);
-exit(status);
+free(_cli);
+exit(_stat);
 }
 }
