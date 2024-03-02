@@ -42,6 +42,7 @@ void start_shell(char **c_cmd, int t_cmd);
 void no_comment_char(char *xin);
 void _rmnl(char *string);
 void basic_shell(void);
+void _stdout(char *str, int strm);
 void exepcmd(char **x_cmd, int t_cmd);
 void xenv(char **x_cmd __attribute__((unused)));
 void (*pointer_func(char *xcmd))(char **);
