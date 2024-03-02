@@ -17,7 +17,7 @@ _stdout("\n$ ", STDIN_FILENO);
 /**
  * _control_d - This simple fn handles interupt for the
  * CTRL+D signal.
- * @sig: The signal value.
+ * @sgn: The signal value.
  * Return: Nada.
 */
 void _control_d(int sgn)
