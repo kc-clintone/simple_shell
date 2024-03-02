@@ -47,6 +47,7 @@ void xenv(char **x_cmd __attribute__((unused)));
 void (*pointer_func(char *xcmd))(char **);
 void no_comments(char *trgt);
 char **tk_handler(char *usr_str, char *delim);
+char *valid_path_check(char *xcmd);
 int parseer(char *xcmd);
 
 #endif /*_SHELL_H_*/
