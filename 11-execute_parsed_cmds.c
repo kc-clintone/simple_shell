@@ -13,7 +13,7 @@ if (t_cmd == _EXTCMD)
 {
 if (execve(x_cmd[0], x_cmd, NULL) == -1)
 {
-perror(sys_getenv("PWD"));
+perror(get_env("PWD"));
 exit(2);
 }
 }
@@ -22,7 +22,7 @@ if (t_cmd == _PATH)
 if (execve(valid_path_check(x_cmd[0]),
 x_cmd, NULL) == -1)
 {
-perror(sys_getenv("PWD"));
+perror(get_env("PWD"));
 exit(2);
 }
 }
