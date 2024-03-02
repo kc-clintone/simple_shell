@@ -1,39 +1,39 @@
 #include "shell.h"
 /**
-* valid_path_check - This function checks if a valid command is
-* in the present PATH.
-* @x_cmd: the command to be parsed.
-* Return: Returns the valid path of the command, NULL if otherwise
+ * valid_path_check - This function checks if a valid command is
+ * in the present PATH.
+ * @xcmd: The target command.
+ * Return: The valid path of the c.d, NULL otherwise.
 */
-char *check_for_valid_path(char *cmd)
+char *valid_path_check(char *xcmd)
 {
-char *secondary, *temp_copy, *primary;
-char *the_actual_path = sys_getenv("PATH");
-char **path_tray = NULL;
-int indexer;
+int x;
+char **pthtr = NULL;
+char *_sec, *tcopy, *_pri;
+char *t_path = sys_getenv("PATH");
 
-if (the_actual_path == NULL || _strlen(the_actual_path) == 0)
+if (t_path == NULL || _strlen(t_path) == 0)
 {
 return (NULL);
 }
-temp_copy = malloc(sizeof(*temp_copy) * (_strlen(the_actual_path) + 1));
-_strcpy(the_actual_path, temp_copy);
-path_tray = token_processor(temp_copy, ":");
-for (indexer = 0; path_tray[indexer] != NULL; indexer++)
+tcopy = malloc(sizeof(*tcopy) * (_strlen(t_path) + 1));
+_strcpy(t_path, tcopy);
+pthtr = tk_handler(tcopy, ":");
+for (x = 0; pthtr[x] != NULL; x++)
 {
-secondary = _strcat(path_tray[indexer], "/");
-primary = _strcat(secondary, cmd);
-if (access(primary, F_OK) == 0)
+_sec = _strcat(pthtr[x], "/");
+_pri = _strcat(_sec, xcmd);
+if (access(_pri, F_OK) == 0)
 {
-free(secondary);
-free(path_tray);
-free(temp_copy);
-return (primary);
+free(_sec);
+free(pthtr);
+free(tcopy);
+return (_pri);
 }
-free(primary);
-free(secondary);
+free(_pri);
+free(_sec);
 }
-free(temp_copy);
-free(path_tray);
+free(tcopy);
+free(pthr);
 return (NULL);
 }
