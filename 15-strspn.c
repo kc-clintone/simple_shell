@@ -12,9 +12,7 @@ int result = 0, x = 0;
 while (f_str[x] != '\0')
 {
 if (strchr_fn(s_str, f_str[x]) == NULL)
-{
 break;
-}
 result++;
 x++;
 }
