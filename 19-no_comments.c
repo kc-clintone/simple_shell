@@ -4,7 +4,7 @@
  * @trgt: Target input.
  * Return: Nada.
 */
-void no_comment(char *trgt)
+void no_comments(char *trgt)
 {
 int x = 0;
 
