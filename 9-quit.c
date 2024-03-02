@@ -20,7 +20,7 @@ exit(_stat);
 }
 else if (tc == 2)
 {
-xargs = custom_atoi(x_cmd[1]);
+xargs = atoi_fn(x_cmd[1]);
 if (xargs == -1)
 {
 _stdout(_shell, STDERR_FILENO);
