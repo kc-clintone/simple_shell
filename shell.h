@@ -42,6 +42,7 @@ void no_comment_char(char *xin);
 void _rmnl(char *string);
 void basic_shell(void);
 void xenv(char **x_cmd __attribute__((unused)));
+void (*pointer_func(char *xcmd))(char **);
 void no_comment(char *trgt);
 
 #endif /*_SHELL_H_*/
