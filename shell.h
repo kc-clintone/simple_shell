@@ -40,4 +40,4 @@ void (*_fn)(char **command);
 /**===========prototypes===========*/
 
 
-#endif _SHELL_H_
+#endif /*_SHELL_H_*/
