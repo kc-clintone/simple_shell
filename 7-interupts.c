@@ -9,9 +9,7 @@
 void _control_c(int sgn)
 {
 if (sgn == SIGINT)
-{
 _stdout("\n$ ", STDIN_FILENO);
-}
 }
 
 /**
@@ -24,7 +22,7 @@ void _control_d(int sgn)
 {
 if (sgn == SIGQUIT)
 {
-_stdout("\n");
+printf("\n");
 exit(0);
 }
 }
