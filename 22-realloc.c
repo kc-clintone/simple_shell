@@ -34,7 +34,7 @@ for (x = 0; x < min(i, j); x++)
 {
 *((char *)tbfr + x) = *((char *)ptr + x);
 }
-free(tbfr);
+free(ptr);
 return (tbfr);
 }
 else
