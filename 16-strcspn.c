@@ -13,9 +13,7 @@ int _len = 0, x;
 for (x = 0; f_str[x] != '\0'; x++)
 {
 if (strchr_fn(s_str, f_str[x]) != NULL)
-{
 break;
-}
 _len++;
 }
 return (_len);
