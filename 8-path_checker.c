@@ -10,7 +10,7 @@ char *valid_path_check(char *xcmd)
 int x;
 char **pthtr = NULL;
 char *_sec, *tcopy, *_pri;
-char *t_path = sys_getenv("PATH");
+char *t_path = get_env("PATH");
 
 if (t_path == NULL || strlen_fn(t_path) == 0)
 {
