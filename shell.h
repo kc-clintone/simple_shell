@@ -38,6 +38,6 @@ void (*_fn)(char **command);
 } object_map;
 
 /**===========prototypes===========*/
-
+void _rmnl(char *string);
 
 #endif /*_SHELL_H_*/
