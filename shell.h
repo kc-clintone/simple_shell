@@ -46,6 +46,7 @@ void exepcmd(char **x_cmd, int t_cmd);
 void xenv(char **x_cmd __attribute__((unused)));
 void (*pointer_func(char *xcmd))(char **);
 void no_comments(char *trgt);
+int strlen_fn(char *string);
 char **tk_handler(char *usr_str, char *delim);
 char *valid_path_check(char *xcmd);
 int parseer(char *xcmd);
