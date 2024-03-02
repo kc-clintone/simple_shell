@@ -54,5 +54,6 @@ int parseer(char *xcmd);
 void strcpy_fn(char *source, char *dest);
 void quit(char **x_cmd);
 void *_realloc(void *ptr, unsigned int i, unsigned int j);
+char *get_env(char *envn);
 
 #endif /*_SHELL_H_*/
