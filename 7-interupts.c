@@ -10,6 +10,20 @@ void _control_c(int sgn)
 {
 if (sgn == SIGINT)
 {
-custom_printf("\n$ ", STDIN_FILENO);
+_stdout("\n$ ", STDIN_FILENO);
 }
+}
+
+/**
+ * _control_d - This simple fn handles interupt for the
+ * CTRL+D signal.
+ * @sig: The signal value.
+ * Return: Nada.
+*/
+void _control_d(int sgn)
+{
+if (sgn == SIGQUIT)
+{
+_stdout("\n");
+exit(0);
 }
