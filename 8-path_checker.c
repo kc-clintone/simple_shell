@@ -12,11 +12,11 @@ char **pthtr = NULL;
 char *_sec, *tcopy, *_pri;
 char *t_path = sys_getenv("PATH");
 
-if (t_path == NULL || _strlen(t_path) == 0)
+if (t_path == NULL || strlen_fn(t_path) == 0)
 {
 return (NULL);
 }
-tcopy = malloc(sizeof(*tcopy) * (_strlen(t_path) + 1));
+tcopy = malloc(sizeof(*tcopy) * (strlen_fn(t_path) + 1));
 _strcpy(t_path, tcopy);
 pthtr = tk_handler(tcopy, ":");
 for (x = 0; pthtr[x] != NULL; x++)
