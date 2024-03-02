@@ -27,3 +27,4 @@ if (sgn == SIGQUIT)
 _stdout("\n");
 exit(0);
 }
+}
