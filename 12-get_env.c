@@ -4,7 +4,6 @@
  * @envn: Name of env variable.
  * Return: Value of env.
 */
-char *get_env(char *envn)
 {
 char *envc, *kvp, **tmpv;
 
