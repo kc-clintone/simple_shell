@@ -4,6 +4,7 @@ int _stat;
 char *_shell;
 char *_cli;
 char **_pcmds;
+char **_genv;
 
 /**
 * main - Entry point of the shell program.
