@@ -1,7 +1,4 @@
 #include "shell.h"
-
-char **_genv;
-
 /**
  * xenv - This will print the the environment of the user in session.
  * @x_cmd: A command parameter.
