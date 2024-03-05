@@ -13,7 +13,7 @@ object_map map_func_to[] = {
 
 for (x = 0; x < 2; x++)
 {
-if (strcmp_fn(xcmd, map_func_to[x].command) == 0)
+if (strcmp_fn(xcmd, map_func_to[x]._command) == 0)
 return (map_func_to[x]._fn);
 }
 return (NULL);
