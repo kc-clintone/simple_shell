@@ -1,68 +1,72 @@
-#ifndef _SHELL_H_
-#define _SHELL_H_
+#ifndef _SHELL_H
+#define _SHELL_H
 
-#include <errno.h>
-#include <stdio.h>
-#include <stdlib.h>
+/** Including headers **/
 #include <unistd.h>
-#include <string.h>
+#include <errno.h>
 #include <dirent.h>
 #include <signal.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include <sys/types.h>
 
+/** External variables**/
+extern char **environ; /*for environmrnt variable*/
+extern char *command_line; /*for command line*/
+extern char **pcmds; /*for parsed cmd*/
+extern char *shell_prompt; /*my shell prompt*/
+extern int shell_status; /*program status*/
+
+/** Function prototypes **/
+void my_printf(char *, int);
+void null_char(char *);
+int my_strlen(char *);
+char *my_strtok(char *, char *, char **);
+char **my_processor(char *, char *);
+void my_exit(char **my_cmd);
+void env(char **);
+char *my_strcat(char *, char *);
+char *my_strchr(char *, char);
+int my_strspn(char *, char *);
+void my_strcpy(char *, char *);
+int my_strcmp(char *, char *);
+int my_atoi(char *);
+int my_strcspn(char *, char *);
+void my_ctrlc(int);
+void execute_parsed_command(char **, int);
+void my_ctrld(int);
+void discard_comments(char *);
+int parse_commands(char *);
+char *path_checker(char *);
+void (*fnptr(char *))(char **);
+char *get_sys_env(char *);
+extern void normal(void);
+void start_shell(char **current_cmd, int cmd_type);
+void *my_realloc(void *ptr, unsigned int c_size,
+unsigned int r_size);
+
+/**Others*/
 #define min(i, j) (((i) < (j)) ? (i) : (j))
 
-#define _PATH 3
-#define _INTCMD 2
-#define _EXTCMD 1
-#define _BADCMD -1
-
-extern int _stat;
-extern char *_shell;
-extern char **_genv;
-extern char *_cli;
-extern char **_pcmds;
-
 /**
- * struct _object - This is a structure mappinh a command name to a
- * corresponding function.
- * @_command: The command name of the target command.
- * @_fn: The func pointer to the command.
+ * struct obj - Thus struct that maps cmd name to
+ * a corresponding function
+ * @_cmd_: Name of the command
+ * @function: Function pointer to the command
 */
-typedef struct _object
+typedef struct obj
 {
-char *_command;
-void (*_fn)(char **command);
-} object_map;
+	char *_cmd_;
+	void (*function)(char **my_cmd);
+} objMapper;
 
-/**===========prototypes===========*/
-void start_shell(char **c_cmd, int t_cmd);
-void no_comment_char(char *xin);
-void _rmnl(char *string);
-void basic_shell(void);
-void _stdout(char *str, int strm);
-void exepcmd(char **x_cmd, int t_cmd);
-void xenv(char **x_cmd __attribute__((unused)));
-void (*pointer_func(char *xcmd))(char **);
-void no_comments(char *trgt);
-int strlen_fn(char *string);
-char *strtok_fn(char *_str, char *_delim, char **ref_pointer);
-char **tk_handler(char *usr_str, char *delim);
-char *valid_path_check(char *xcmd);
-int parser(char *xcmd);
-void strcpy_fn(char *source, char *dest);
-void quit(char **x_cmd);
-int strcmp_fn(char *f_str, char *s_str);
-void *_realloc(void *ptr, unsigned int i, unsigned int j);
-char *get_env(char *envn);
-int atoi_fn(char *str);
-char *strchr_fn(char *_str, char _chr);
-int strspn_fn(char *f_str, char *s_str);
-int strcspn_fn(char *f_str, char *s_str);
-char *strcat_fn(char *dest, char *src);
-void _control_d(int sgn);
-void _control_c(int sgn);
+/** Program constants **/
+#define INT_CMD 2
+#define EXT_CMD 1
+#define MY_PATH 3
+#define BAD_CMD -1
 
-#endif /*_SHELL_H_*/
+#endif /*_SHELL_H*/
