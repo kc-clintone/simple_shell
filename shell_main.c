@@ -9,8 +9,8 @@ int shell_status; /*program status*/
 
 /**
  * main - Entry point to shell program
- * @argc_arr: Number of args passed to main function
- * @argv_arr: Program args to be parsed to main function
+ * @myargc: Number of args passed to main function
+ * @myargv: Program args to be parsed to main function
  * Return: 0 on success,
  *         1 otherwise
 */
