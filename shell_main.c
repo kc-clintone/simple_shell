@@ -1,10 +1,10 @@
 #include "shell.h"
-//----------global variables---------
+/*----------global variables---------*/
 char *command_line; /*for command line*/
 char **pcmds; /*for parsed cmd*/
 char *shell_prompt; /*my shell prompt*/
 int shell_status; /*program status*/
-//-----------------------------------
+/*-----------------------------------*/
 
 
 /**
