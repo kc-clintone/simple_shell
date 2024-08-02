@@ -10,7 +10,7 @@ void normal(void)
 size_t k = 0;
 char **current_cmd = NULL;
 int i;
-int cmd_type= 0;
+int cmd_type = 0;
 
 if (!(isatty(STDIN_FILENO)))
 {
