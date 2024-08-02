@@ -3,7 +3,7 @@
 /**
  * execute_parsed_command - This function executes the parsed cmd
  * @arg1: Parsed form of the input command
- * @aer2: The type of target command
+ * @arg2: The type of target command
  * Return: Returns nothing
 */
 
